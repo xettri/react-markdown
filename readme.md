@@ -23,6 +23,8 @@ React component to render markdown.
   (many plugins you can pick and choose from)
 * [x] **[compliant][section-syntax]**
   (100% to CommonMark, 100% to GFM with a plugin)
+* [x] **[mermaid][section-mermaid]**
+  (built-in support for mermaid diagrams)
 
 ## Contents
 
@@ -47,6 +49,7 @@ React component to render markdown.
   * [Use custom components (syntax highlight)](#use-custom-components-syntax-highlight)
   * [Use remark and rehype plugins (math)](#use-remark-and-rehype-plugins-math)
 * [Plugins](#plugins)
+* [Mermaid](#mermaid)
 * [Syntax](#syntax)
 * [Compatibility](#compatibility)
 * [Architecture](#architecture)
@@ -595,6 +598,24 @@ Here are three good ways to find plugins:
   [`rehype-plugin`][github-topic-rehype-plugin] topics
   — any tagged repo on GitHub
 
+## Mermaid
+
+`react-markdown` has built-in support for mermaid diagrams.
+You can use code blocks with `mermaid` as the language:
+
+```markdown
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+```
+
+This will automatically render the diagram using [mermaid][mermaid].
+The library is lazily loaded, so it won't affect your initial bundle size if you don't use it.
+
 ## Syntax
 
 `react-markdown` follows CommonMark, which standardizes the differences between
@@ -942,3 +963,5 @@ abide by its terms.
 [section-syntax]: #syntax
 
 [typescript]: https://www.typescriptlang.org
+[mermaid]: https://mermaid-js.github.io/mermaid/
+[section-mermaid]: #mermaid

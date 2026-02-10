@@ -145,6 +145,15 @@ test('Markdown', async function (t) {
     )
   })
 
+  await t.test('should support mermaid', function () {
+    assert.equal(
+      renderToStaticMarkup(
+        <Markdown children={'```mermaid\ngraph TD;\n    A-->B;\n```'} />
+      ),
+      '<div class="mermaid language-mermaid"></div>'
+    )
+  })
+
   await t.test('should support an html (default)', function () {
     assert.equal(
       renderToStaticMarkup(<Markdown children="<i>a</i>" />),
